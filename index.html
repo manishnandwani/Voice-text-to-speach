@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sandbox</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <form id="form" class="app">
+        <h2>Text to Speach</h2>
+        <textarea id="textInput" placeholder="Write your text"></textarea>
+        <div>
+          <p>Pitch : <span id="pitchContent">1</span></p>
+          <input
+            class="input-range"
+            id="pitchInput"
+            type="range"
+            min="0"
+            max="2"
+            value="1"
+            step="0.2"
+          />
+        </div>
+        <div>
+          <p>Rate : <span id="rateContent">1</span></p>
+          <input
+            class="input-range"
+            id="rateInput"
+            type="range"
+            min="0.5"
+            max="2"
+            value="1"
+            step="0.25"
+          />
+        </div>
+        <select id="selectInput" class="voice-select"> </select>
+        <button id="submitBtn" type="submit" class="btn">Submit</button>
+      </form>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

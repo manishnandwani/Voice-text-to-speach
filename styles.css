@@ -1,0 +1,45 @@
+  body {
+    font-family: sans-serif;
+    background: #dedede;
+    padding: 48px;
+  }
+  
+  h1 {
+    text-align: center;
+    display: inline-block;
+    font-size: 72px;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .app {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 400px;
+    gap: 15px;
+  }
+  
+  .btn {
+    background-color: rgb(0, 132, 255);
+    border-radius: 10px;
+    padding: 6px;
+    border: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .input-range {
+    width: 100%;
+  }
+  
+  .voice-select {
+    border-radius: 5px;
+    border: none;
+    padding: 6px;
+  }
+  
