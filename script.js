@@ -12,6 +12,9 @@ const voiceSelect = document.getElementById("selectInput");
 const submitBtn = document.getElementById("submitBtn");
 const form = document.getElementById("form");
 
+const recordBtn = document.getElementById('recordBtn')
+const listenBtn = document.getElementById('listenBtn')
+
 //On Submit form: speak
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -27,7 +30,6 @@ let voices = [];
 const getVoices = () => {
   //get the voices from synth api
   voices = synth.getVoices();
-  console.log("voices",voices)
   // Loop through voices and create an option for each one
   voices.forEach((voice, index) => {
     let option = document.createElement("option");
@@ -107,3 +109,40 @@ rateInput.addEventListener("change", (e) => {
 voiceSelect.addEventListener("change", (e) => {
   speak();
 });
+
+// Either of them will work as speech recognition
+const SpeechRecognition = window.speechRecognition || window.webkitSpeechRecognition
+
+// Creating an instance of speechRecognition
+const recognition = new SpeechRecognition();
+
+// true : Realtime show data while speaking, false :  will show data post speaking
+recognition.interimResults = true;
+
+// Check the result after speaking
+recognition.addEventListener('result',(e) =>{
+  // get the text from results
+  const text = Array.from(e.results)
+                .map(result => result[0])         // return array with all 0th elements []
+                .map(result => result.transcript) // return string with transcript:  'hello My name is Manish'
+                .join('')                         // return array with transcript ['hello','My name is', 'Manish']
+
+  textInput.value = text                          // assign text to input
+})
+
+recordBtn.addEventListener('click',(e)=>{
+  //start recognition
+  recognition.start()
+
+  //show listen btn
+  recordBtn.classList.add('hide')
+  listenBtn.classList.remove('hide')
+})
+
+recognition.addEventListener('end',(e) =>{
+
+  //show record btn
+  recordBtn.classList.remove('hide')
+  recordBtn.classList.add('show')
+  listenBtn.classList.add('hide')
+})
