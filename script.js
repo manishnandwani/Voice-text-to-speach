@@ -140,7 +140,6 @@ recordBtn.addEventListener('click',(e)=>{
 })
 
 recognition.addEventListener('end',(e) =>{
-
   //show record btn
   recordBtn.classList.remove('hide')
   recordBtn.classList.add('show')
